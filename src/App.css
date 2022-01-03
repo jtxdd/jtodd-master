@@ -1,38 +1,375 @@
-.App {
-  text-align: center;
+#state-obj {
+  position: fixed;
+  left: 1rem;
+  top: 10rem;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 10pt;
+  background: rgba(0, 0, 0, 0.88);
+  color: rgb(51, 255, 0);
+  padding: 1rem;
+  z-index: 11;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+#spy-px {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: 0;
+  left: 0;
+}
+
+@media (max-width: 767px) {
+  .content {
+    margin: 2rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+@media (min-width: 768px) {
+  .content {
+    margin: 2rem 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .content {
+    margin: 2rem 6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content {
+    margin: 2rem 8rem;
+  }
+}
+
+/* ----------------------------------root */
+#root {
+  display: flex;
   min-height: 100vh;
+  flex-direction: column;
+}
+
+.content {
+  height: 100%;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  transition: all 500ms ease;
+}
+
+.module {
+  flex-grow: 1;
+}
+
+.module:not(#About) {
+  margin-top: 100px;
+}
+
+.module-content {
+  margin: 0.5rem;
+}
+
+#Headshot {
+  padding-top: 77px;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  margin: 0 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.headshot-wrap {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-@keyframes App-logo-spin {
+#headshot-img {
+  max-height: 150px;
+}
+/* ----------------------------------root */
+
+/* ----------------------------------Scroll Top button */
+#scroll-top-btn {
+  position: fixed;
+  bottom: 5rem;
+  right: 0.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transform: scale(0.75);
+}
+
+#scroll-top-btn::before {
+  content: "\f077";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+
+#scroll-top-btn.vis {
+  opacity: 1;
+  transition: all 200ms ease;
+}
+
+#scroll-top-btn.invis {
+  opacity: 0;
+  transition: all 200ms ease;
+  pointer-events: none;
+}
+/* ----------------------------------Scroll Top button */
+
+/* ----------------------------------Contact */
+#contact-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.form-control::placeholder {
+  font-size: 14px;
+  font-size: min(max(14px, 4vw), 22px);
+  font-size: clamp(14px, 3vw, 20px);
+}
+
+#hidden_iframe {
+  display: none;
+}
+
+#form-toggler {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.thank-you-message {
+  animation: fadeIn 1s ease forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#vert-spacer {
+  height: 200px;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
+/* ----------------------------------Contact */
+
+/* ----------------------------------About */
+
+.tech-logo {
+  max-height: 50px;
+  margin: 0.25rem 0.5rem;
+}
+
+/* ----------------------------------About */
+
+/* ----------------------------------Projects */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.card-links {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  align-items: flex-end;
+}
+
+.card-footer {
+  display: flex;
+}
+
+.card-title {
+  text-transform: capitalize;
+}
+
+.card-text {
+  font-size: 16px;
+  font-size: min(max(16px, 4vw), 22px);
+  font-size: clamp(16px, 3vw, 22px);
+}
+
+.pj-card {
+  max-width: min(max(200px, 95vw), 500px);
+}
+
+.pj-col {
+  margin-bottom: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.col-lg-6.pj-col {
+  transition: all 200ms ease;
+}
+/* ----------------------------------Projects */
+
+/* ----------------------------------Modal in Projects */
+/* ----------------------------------Modal in Projects */
+
+/* ----------------------------------Navbar */
+.dark-nav {
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.85;
+}
+
+#NavBar {
+  justify-content: flex-end;
+}
+
+.text-scramble {
+  font-family: "Roboto Mono", monospace;
+  font-weight: 100;
+  font-size: 28px;
+  color: #fafafa;
+}
+
+.dud {
+  color: #757575;
+}
+/* ----------------------------------Navbar */
+
+/* ----------------------------------Footer */
+.footer {
+  height: 56px;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.85;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-legal {
+  font-size: 0.75rem;
+}
+
+.footer-icon-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-icon-link {
+  margin: 0 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-icon-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background: #6098ff;
+  display: block;
+  transform-origin: right top;
+  transform: scale(0, 1);
+  transition: transform 0.4s cubic-bezier(1, 0, 0, 1);
+}
+
+.footer-icon-link:hover::before {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.footer-icon {
+  height: 32px;
+  width: 32px;
+}
+/* ----------------------------------Footer */
+
+/* ----------------------------------ProjectsAccordion */
+/*
+  .accordion > .card > .card-header {
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  .accordion > .card > .card-header:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+
+  .accordion > .card > .card-header:active {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+  }
+
+  .accordion > .card > .active-group:hover {
+    background: rgba(0, 123, 255, 0.95);
+    color: #ffffff;
+  }
+
+  .accordion > .card > .active-group {
+    background: #007bff;
+    color: #ffffff;
+  }
+
+  .card-header > .chevron::before {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: all 500ms ease;
+  }
+
+  .active-group > .chevron::before {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: all 500ms ease;
+    transform: rotate(90deg);
+  }
+*/
+/* ----------------------------------ProjectsAccordion */
+
+/*
+
+  from root...
+    padding-top: 77px;
+
+  from content...
+    position: relative;
+    top: 77px;
+    margin-top: -77px;
+    padding-top: 77px;
+
+  from module
+    margin-top: -77px;
+    padding-top: 77px;
+
+  from footer...
+    position: relative;
+    top: 77px;
+    margin-top: 350px;
+
+  .break {
+    height: 1px;
+    width: 100%;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+
+*/
